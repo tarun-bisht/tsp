@@ -2,7 +2,7 @@
 
 This repository contains code to find solution of travelling salesman problem (TSP) using integer programming for any list of cities. TSP problem is, given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
 
-**[Results on 25 cities of Maharastra](./data/tsp_map.html)**
+**[Results on 25 cities of Maharastra](https://tarun-bisht.github.io/tsp/data/tsp_map.html)**
 
 ## Features
 - Provide method to get city details, latitude and longitude information from [openstreetmap API](https://nominatim.openstreetmap.org) using which distance between these cities is calculated using Haversine formula.
