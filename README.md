@@ -39,6 +39,23 @@ The command below will install all the required dependencies from `requirements.
 ```bash
 pip install -r requirements.txt
 ```
+We also need to install a MILP solver. This project uses `cbc` solver which is an open-source mixed integer linear programming solver written in C++.
+##### Linux
+- using apt package manager
+```bash
+apt install -y -q coinor-cbc
+```
+- using pacman package manager
+```bash
+sudo pacman -S  coin-or-cbc
+```
+##### Windows
+Download binary from github [release](https://github.com/coin-or/Cbc/releases/tag/releases%2F2.10.8) and install.
+
+##### MacOS 
+```bash
+brew install coin-or-tools/coinor/cbc
+```
 
 ## Documentation
 - Input Parameters for a script can be set by using config file.
