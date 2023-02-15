@@ -90,16 +90,20 @@ Let $d_{i,j}$ denote distance between cities $i$ and $j$
 
 $$min\ \sum_{i=1}^{|E|}\sum_{j=1}^{|E|} d_{i,j}x_{i,j}$$
 
-$$st.$$
+$$ s.t. \ \ \sum_{i=1}^{n}x_{i,k} = 1 \ \ \forall k\in \{ 1, 2, 3....,|E| \}, i \neq j \tag{1}$$
 
-$$ \sum_{i=1}^{n}x_{i,k} = 1 \ \ \forall k\in{1, 2, 3....,|E|}, i \neq j$$
+$$ \sum_{j=1}^{n}x_{k,j} = 1 \ \ \forall k\in \{ 1, 2, 3....,|E| \}, i \neq j \tag{2}$$
 
-$$ \sum_{j=1}^{n}x_{k,j} = 1 \ \ \forall k\in{1, 2, 3....,|E|}, i \neq j$$           
-                
-$$ u_i - u_j + 1 \leq (n-1)(1-x_{i,j}) \ \ \forall i\in{1, 2, 3....,|E|}, j\in{1, 2, 3....,|E|}, i \neq j$$
+$$ u_1 = 1 \tag{3}$$
 
-$$ u_1 = 1$$
+$$ u_i - u_j + 1 \leq (n-1)(1-x_{i,j}) \ \ \forall (i,j)\in \{ 1, 2, 3....,|E| \}^2, i \neq j \tag{4}$$
 
-$$ u_i \ge 2 \forall i\in{2, 3....,|E|}$$
+$$ u_i \ge 2 \ \ \forall i\in \{ 2, 3....,|E| \} \tag{5}$$
 
-$$ u_i \le |N| \forall i\in{2, 3....,|E|}$$
+$$ u_i \le |N| \ \ \forall i\in \{ 2, 3....,|E| \} \tag{6}$$
+
+- $constraint(1)$ denotes from each node there is one incoming edge. 
+- $constraint(2)$ denotes from each node there is one outgoing edge.
+- $constraint(3)$ denotes when $x_{i,j} = 1$ then $u_j = u_i + 1$ ie. $j^{th}$ edge will be labelled $1$ more than previous label $(i^{th})$ label if edge $x_{i,j}$ is selected. This constraint denotes ordering of each node in optimal solution. This constraint is not considered for last edge of path which connect last node with first node to create a cycle.
+- $constraint(4)$ denotes first node ordering is always $1$
+- $constraint(5)$ and $constraint(6)$ are bound constraints on $u$.
