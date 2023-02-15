@@ -5,7 +5,7 @@ This repository contains code to find solution of travelling salesman problem (T
 **[Results on 25 cities of Maharastra](https://tarun-bisht.github.io/tsp/data/tsp_map.html)**
 
 ## Features
-- Provide method to get city details, latitude and longitude information from [openstreetmap API](https://nominatim.openstreetmap.org) using which distance between these cities is calculated using Haversine formula.
+- Provide method to get city details, latitude and longitude information from [openstreetmap API](https://nominatim.openstreetmap.org) using which distance between these cities is calculated using [Haversine formula](https://www.geeksforgeeks.org/haversine-formula-to-find-distance-between-two-points-on-a-sphere/).
 - Provide a formulation of TSP using [pyomo](http://www.pyomo.org/) that can be solved by any MILP solver supported by pyomo.
 
 ## Installation
