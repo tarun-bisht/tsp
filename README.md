@@ -2,6 +2,8 @@
 
 This repository contains code to find solution of travelling salesman problem (TSP) using integer programming for any list of cities. TSP problem is, given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
 
+**[Results on 25 cities of Maharastra](./data/tsp_map.html)**
+
 ## Features
 - Provide method to get city details, latitude and longitude information from [openstreetmap API](https://nominatim.openstreetmap.org) using which distance between these cities is calculated using Haversine formula.
 - Provide a formulation of TSP using [pyomo](http://www.pyomo.org/) that can be solved by any MILP solver supported by pyomo.
@@ -64,8 +66,3 @@ python tsp.py --config=config.txt
 ```
 ##### Arguments
 - `--config` or `-c`: provide path to config file. (required)
-
-## Results on 25 cities of Maharastra
-<div>
-  <iframe title="Map TSP applied on 25 cities of Maharastra India." src="data/tsp_map.html">Map TSP applied on 25 cities of Maharastra India.</iframe>
-</div>
