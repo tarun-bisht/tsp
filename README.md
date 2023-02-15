@@ -66,3 +66,40 @@ python tsp.py --config=config.txt
 ```
 ##### Arguments
 - `--config` or `-c`: provide path to config file. (required)
+
+## TSP MILP Formulation
+Let variable $x_{i,j}$ is a binary variable denoting if edge connecting $i, j$ is part of optimal solution $(1)$ or not $(0)$. Number of these variables is equal to total number of edges.
+
+$$ 
+x = 
+\begin{cases}
+1 &\text{if edge} (i,j) \text{is part of optimal solution} \\
+0 &\text{if edge} (i,j) \text{is not part of optimal solution}
+\end{cases}
+$$
+
+Another variable $u$ will track edge number, it starts from $1$ and goes till number of nodes. Number of these variables is equal to total number of nodes.
+
+$$ 
+u \in {1, 2, 3, ...., |N|}
+$$
+
+Let $d_{i,j}$ denote distance between cities $i$ and $j$
+
+#### Model Formulation
+
+$$min\ \sum_{i=1}^{|E|}\sum_{j=1}^{|E|} d_{i,j}x_{i,j}$$
+
+$$st.$$
+
+$$ \sum_{i=1}^{n}x_{i,k} = 1 \ \ \forall k\in{1, 2, 3....,|E|}, i \neq j$$
+
+$$ \sum_{j=1}^{n}x_{k,j} = 1 \ \ \forall k\in{1, 2, 3....,|E|}, i \neq j$$           
+                
+$$ u_i - u_j + 1 \leq (n-1)(1-x_{i,j}) \ \ \forall i\in{1, 2, 3....,|E|}, j\in{1, 2, 3....,|E|}, i \neq j$$
+
+$$ u_1 = 1$$
+
+$$ u_i \ge 2 \forall i\in{2, 3....,|E|}$$
+
+$$ u_i \le |N| \forall i\in{2, 3....,|E|}$$
