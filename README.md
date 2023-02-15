@@ -73,12 +73,14 @@ Let variable $x_{i,j}$ is a binary variable denoting if edge connecting $i, j$ i
 $$ 
 x = 
 \begin{cases}
-1 &\text{if edge} (i,j) \text{is part of optimal solution} \\
-0 &\text{if edge} (i,j) \text{is not part of optimal solution}
+1 &\text{if edge } (i,j) \text{ is part of optimal solution} \\
+0 &\text{if edge } (i,j) \text{ is not part of optimal solution}
 \end{cases}
 $$
 
 Another variable $u$ will track edge number, it starts from $1$ and goes till number of nodes. Number of these variables is equal to total number of nodes.
+
+Let $|N|$ denotes total number of nodes and $|E|$ denotes total number of edges.
 
 $$ 
 u \in {1, 2, 3, ...., |N|}
